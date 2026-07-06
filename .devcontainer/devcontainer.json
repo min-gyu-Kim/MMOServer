@@ -32,5 +32,9 @@
 			"clangd.arguments": ["--compile-commands-dir=${workspaceFolder}/Out/Build/${command:cmake.activeBuildPresetName}"],
 			"C_Cpp.clang_tidy.showCategory": true
 		}
-	}
+	},
+	 "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt=seccomp=unconfined"
+    ]
 }
