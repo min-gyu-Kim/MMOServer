@@ -1,0 +1,29 @@
+{
+  "features": {
+    "ghcr.io/devcontainer-community/devcontainer-features/clang-format:1": {
+      "version": "1.0.2",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/clang-format@sha256:fd4a701f3d067e74caa5e8e229eaf13e45e85385dcac5ad81401c4e7678b735e",
+      "integrity": "sha256:fd4a701f3d067e74caa5e8e229eaf13e45e85385dcac5ad81401c4e7678b735e"
+    },
+    "ghcr.io/devcontainer-community/devcontainer-features/clang-tidy:1": {
+      "version": "1.0.2",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/clang-tidy@sha256:e120a41ca26d1638ffd5407a1c27cd75ee1b79c9bce1b7f17ede2fa20bc6d5b5",
+      "integrity": "sha256:e120a41ca26d1638ffd5407a1c27cd75ee1b79c9bce1b7f17ede2fa20bc6d5b5"
+    },
+    "ghcr.io/devcontainer-community/devcontainer-features/cmake.org:1": {
+      "version": "1.0.2",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/cmake.org@sha256:3f498a612eb69d006535cbe49bc7344108a7106e116cc85123d5e7bfcbe79a6e",
+      "integrity": "sha256:3f498a612eb69d006535cbe49bc7344108a7106e116cc85123d5e7bfcbe79a6e"
+    },
+    "ghcr.io/devcontainer-community/devcontainer-features/ninja-build.org:1": {
+      "version": "1.0.2",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/ninja-build.org@sha256:9df3174efc44643c61204fb1b1c0579a091f433246b581d88c7419f6cd4de3ac",
+      "integrity": "sha256:9df3174efc44643c61204fb1b1c0579a091f433246b581d88c7419f6cd4de3ac"
+    },
+    "ghcr.io/devcontainers-community/features/llvm:3": {
+      "version": "3.2.0",
+      "resolved": "ghcr.io/devcontainers-community/features/llvm@sha256:4f464ab97a59439286a55490b55ba9851616f6f76ac3025e134127ac08ad79e2",
+      "integrity": "sha256:4f464ab97a59439286a55490b55ba9851616f6f76ac3025e134127ac08ad79e2"
+    }
+  }
+}

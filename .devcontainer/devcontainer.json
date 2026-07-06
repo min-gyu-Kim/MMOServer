@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers-community/features/llvm:3": {},
+		"ghcr.io/devcontainer-community/devcontainer-features/clang-format:1": {},
+		"ghcr.io/devcontainer-community/devcontainer-features/clang-tidy:1": {},
+		"ghcr.io/devcontainer-community/devcontainer-features/cmake.org:1": {},
+		"ghcr.io/devcontainer-community/devcontainer-features/ninja-build.org:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-vscode.cmake-tools",
+				"xaver.clang-format",
+				"ms-vscode.cpptools",
+				"eamodio.gitlens",
+				"matepek.vscode-catch2-test-adapter",
+				"jacqueslucke.gcov-viewer"
+			]
+		},
+		"settings": {
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "xaver.clang-format",
+			"C_Cpp.clang_format_style": "file",
+			"C_Cpp.intelliSenseEngine": "disabled",
+			"clangd.arguments": ["--compile-commands-dir=${workspaceFolder}/Out/Build/${command:cmake.activeBuildPresetName}"],
+			"C_Cpp.clang_tidy.showCategory": true
+		}
+	}
+}

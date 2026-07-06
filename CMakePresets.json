@@ -1,0 +1,37 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "Default",
+            "hidden": true,
+            "generator": "Ninja",
+            "description": "C = /usr/bin/clang, CXX = /usr/bin/clang++",
+            "binaryDir": "${sourceDir}/Out/Build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/Out/install/${presetName}",
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Debug",
+            "inherits": "Default"
+        },
+        {
+            "name": "Dev",
+            "inherits": "Default",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_FLAGS": "-g -O0 -Wall -Wextra -Wpedantic -Werror"
+            }
+        },
+        {
+            "name": "Release",
+            "inherits": "Default",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ]
+}
