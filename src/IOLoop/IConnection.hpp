@@ -12,7 +12,7 @@ public:
 
     virtual int32 OnRead(const class BufferView* buffer) = 0;
     virtual void OnWrite(int32 len) = 0;
-    virtual void OnError(int errNo) = 0;
+    virtual void OnDisconnect(int errNo) = 0;
 };
 
 using ListenCallback = std::function<IConnection*(const char* ip, uint16 port)>;

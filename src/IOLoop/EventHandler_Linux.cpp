@@ -59,7 +59,7 @@ bool ConnectHandler::HandleEvent(uint32 events)
         } else {
             // Error occurred
             if (m_connection) {
-                m_connection->OnError(errno);
+                m_connection->OnDisconnect(errno);
             }
             close(GetFD());
             delete this;
@@ -74,7 +74,7 @@ bool ConnectHandler::HandleEvent(uint32 events)
     if (events & (EPOLLERR | EPOLLRDHUP)) {
         // Handle error or hang-up events
         if (m_connection) {
-            m_connection->OnError(errno);
+            m_connection->OnDisconnect(errno);
         }
         close(GetFD());
         delete this;

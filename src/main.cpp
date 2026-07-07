@@ -2,13 +2,14 @@
 #include "IOLoop/IOLoop.hpp"
 #include "types.hpp"
 #include <stdio.h>
+#include <thread>
 
 class MyConnection : public server::IConnection
 {
 public:
     server::int32 OnRead(const server::BufferView* buffer) override
     {
-        printf("Received %d bytes\n", buffer->GetSize());
+        printf("%llu Received %d bytes\n", std::this_thread::get_id(), buffer->GetSize());
         return buffer->GetSize(); // Return the number of bytes processed
     }
 
@@ -17,7 +18,7 @@ public:
         // Handle write completion
     }
 
-    void OnError(server::int32 errNo) override
+    void OnDisconnect(server::int32 errNo) override
     {
         // Handle error
     }
@@ -33,7 +34,20 @@ int main(int argc, char* argv[])
         printf("New connection from %s:%d\n", ip, port);
         return connection; // Return a valid IConnection instance here
     });
-    loop.Run();
+
+    std::vector<std::thread> ioThreads;
+    const int numThreads = std::thread::hardware_concurrency();
+    for (int i = 0; i < numThreads; ++i) {
+        ioThreads.emplace_back([&loop]() { loop.Run(); });
+    }
+
+    for (auto& thread : ioThreads) {
+        if (thread.joinable()) {
+            thread.join();
+        }
+    }
+
+    loop.Stop();
 
     return 0;
 }

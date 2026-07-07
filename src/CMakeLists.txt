@@ -10,4 +10,5 @@ add_executable(MMO_Server
     IOLoop/IConnection.hpp
     IOLoop/EventHandler_Linux.hpp
     IOLoop/EventHandler_Linux.cpp
+    Network/Interface.hpp
 )

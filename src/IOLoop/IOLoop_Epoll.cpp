@@ -1,7 +1,6 @@
 #include "IOLoop_Epoll.hpp"
 #include "../types.hpp"
 #include "EventHandler_Linux.hpp"
-#include <asm-generic/socket.h>
 #include <thread>
 
 #include <unistd.h>
@@ -11,6 +10,10 @@
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+
+#include <string.h>
+#include <stdio.h>
+#include <signal.h>
 
 namespace server {
 
@@ -110,6 +113,9 @@ void IOLoopEpollImpl::PollEvents()
         struct epoll_event events[MAX_EVENTS];
         int nfds = epoll_wait(threadContext->epoll_fd, events, MAX_EVENTS, -1);
         if (nfds == -1) {
+            if (errno == EINTR) {
+                continue;
+            }
             break;
         }
 
